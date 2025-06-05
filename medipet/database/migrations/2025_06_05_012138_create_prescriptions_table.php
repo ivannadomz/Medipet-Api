@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('lab_file')->nullable();   
             $table->timestamps();
 
-            $table->foreign('appointment_id')->references('id')->on('appointments')->onDelete('cascade');
+            $table->foreignId('appointment_id')->constrained('appointments')->onDelete('cascade');
         });
     }
 

@@ -4,22 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cita extends Model
+class Appointment extends Model
 {
     protected $fillable = [
-        'veterinario_id',
+        'vet_id',
         'appointment_date',
         'status',
         'reason',
     ];
 
-    public function veterinario()
+    public function vet()
     {
-        return $this->belongsTo(Veterinario::class, 'veterinario_id');
+        return $this->belongsTo(vet::class, 'vet_id');
     }
     public function mascota()
     {
-        return $this->belongsTo(Mascota::class, 'mascota_id');
+        return $this->belongsTo(Pet::class, 'pet_id');
     }
     public function branch()
     {

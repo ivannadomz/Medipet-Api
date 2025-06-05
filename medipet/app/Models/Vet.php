@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Veterinario extends Model
+class Vet extends Model
 {
     protected $fillable = [
         'user_id',
@@ -18,9 +18,9 @@ class Veterinario extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function citas()
+    public function appointment()
     {
-        return $this->hasMany(Cita::class, 'veterinario_id');
+        return $this->hasMany(Cita::class, 'vet_id');
     }
     //
 }

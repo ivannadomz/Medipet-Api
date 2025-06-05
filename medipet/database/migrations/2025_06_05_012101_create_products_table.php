@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('branch_id')->constrained('branches')->onDelete('cascade');
             $table->string('name');
             $table->double('price');
-            $table->int('stock')->default(0);
+            $table->integer('stock')->default(0);
             $table->string('category');
             $table->text('description')->nullable();
             $table->timestamps();

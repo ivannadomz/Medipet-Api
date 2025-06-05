@@ -9,11 +9,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('races', function (Blueprint $table) {
-            $table->id('id'); 
-            $table->unsignedBigInteger('species_id'); 
+            $table->id();
             $table->string('name'); 
 
-            $table->foreign('species_id')->references('id')->on('species')->onDelete('cascade');
+            $table->foreignId('species_id')->constrained('id')->onDelete('cascade');
 
             $table->timestamps(); 
         });

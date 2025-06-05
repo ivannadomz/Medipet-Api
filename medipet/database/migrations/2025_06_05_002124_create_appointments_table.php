@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('citas', function (Blueprint $table) {
+        Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('veterinario_id')->constrained('veterinarios')->onDelete('cascade');
-            $table->foreignId('mascota_id')->constrained('mascotas')->onDelete('cascade');
+            $table->foreignId('vet_id')->constrained('vets')->onDelete('cascade');
+            $table->foreignId('pet_id')->constrained('pets')->onDelete('cascade');
             $table->foreignId('branch_id')->constrained('branches')->onDelete('cascade');
             $table->date('appointment_date');
             $table->string('status')->default('scheduled');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('citas');
+        Schema::dropIfExists('appointments');
     }
 };

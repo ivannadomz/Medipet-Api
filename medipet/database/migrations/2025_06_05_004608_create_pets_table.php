@@ -14,14 +14,10 @@ return new class extends Migration
             $table->date('birthdate');
             $table->enum('gender', ['H', 'M']);
             $table->decimal('weight', 5, 2);
-            $table->text('allergies')->nullable();
+            $table->text('allergies');
 
-            $table->unsignedBigInteger('species_id');
-            $table->unsignedBigInteger('owner_id'); 
-
-            $table->foreign('species_id')->references('id')->on('species')->onDelete('cascade');
-
-            $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade');
+            $table->foreignId('species_id')->constrained('species')->onDelete('cascade');
+            $table->foreignId('owner_id')->constrained('owners')->onDelete('cascade');
 
             $table->timestamps();
         });
