@@ -23,6 +23,6 @@ class MakeFilamentUser extends Command
             'password' => Hash::make($password),
         ]);
 
-        $this->info("✅ Usuario {$user->email} creado con éxito.");
+        $this->info(" Usuario {$user->email} creado con éxito.");
     }
 }
