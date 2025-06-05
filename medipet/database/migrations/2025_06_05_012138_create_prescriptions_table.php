@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->id(); 
             $table->text('specifications');
-            $table->unsignedBigInteger('appointment_id');
+            
             $table->date('date');
             $table->text('reason');
             $table->text('diagnosis');
